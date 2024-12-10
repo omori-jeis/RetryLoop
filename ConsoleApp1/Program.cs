@@ -30,13 +30,14 @@ namespace ConsoleApp1
                     Console.WriteLine(GetLoopName());
 
                     //loopCntの処理を試したい場合は,breakをコメントアウトしてください。
-                    break;
+                    //break;
                 }
                 catch (Exception ex)
                 {
-                    if (loopCnt++ < 5)
+                    if (loopCnt < 5)
                     {
                         Console.WriteLine($"loop:{loopCnt}");
+                        ++loopCnt;
                         Task.Delay(1000 * loopCnt).Wait();
                     }
                     else
