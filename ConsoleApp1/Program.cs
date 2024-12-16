@@ -27,10 +27,17 @@ namespace ConsoleApp1
             {
                 try
                 {
-                    Console.WriteLine(GetLoopName());
+                    //デバッグ用コマンド
+#if DEBUG
+                    //System.Diagnostics.Debugger.Launch();
+                    Console.WriteLine();
+                    Console.Write("\nPress any key to continue... ");
+                    Console.ReadLine();
+#endif
 
+                    Console.WriteLine(GetLoopName());
                     //loopCntの処理を試したい場合は,breakをコメントアウトしてください。
-                    //break;
+                    break;
                 }
                 catch (Exception ex)
                 {
