@@ -6,21 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Program
+    class ApplicationLogic
     {
-        static void Main(string[] args)
+        public ApplicationLogic()
         {
-            try
-            {
-                Loop();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            Loop();
         }
-
-        private static void Loop()
+        private void Loop()
         {
             int loopCnt = 0;
             while (true)
@@ -57,7 +49,8 @@ namespace ConsoleApp1
         }
         private static string GetLoopName()
         {
-            if (DateTime.Now.Millisecond % 2 == 0) {
+            if (DateTime.Now.Millisecond % 2 == 0)
+            {
                 throw new Exception();
             }
 
