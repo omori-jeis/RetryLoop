@@ -37,9 +37,9 @@ namespace ConsoleApp1
 
                     Console.WriteLine(GetLoopName());
                     //loopCntの処理を試したい場合は,breakをコメントアウトしてください。
-                    break;
+                    //break;
                 }
-                catch (Exception ex)
+                catch (ConsoleApp1.SqlException ex)
                 {
                     if (loopCnt < 5)
                     {
@@ -52,12 +52,20 @@ namespace ConsoleApp1
                         throw ex;
                     }
                 }
-
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
         private static string GetLoopName()
         {
             if (DateTime.Now.Millisecond % 2 == 0) {
+                throw new ConsoleApp1.SqlException();
+            }
+
+            if (DateTime.Now.Millisecond % 3 == 0)
+            {
                 throw new Exception();
             }
 
